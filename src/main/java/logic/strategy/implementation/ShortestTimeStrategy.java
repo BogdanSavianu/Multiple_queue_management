@@ -10,16 +10,17 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ShortestTimeStrategy implements Strategy {
     @Override
     public synchronized void addClient(List<Server> servers, Client client) {
-        synchronized (servers) {
-            Server addHere = servers.get(0);
-            AtomicInteger minTime = servers.get(0).getWaitingPeriod();
+        synchronized (client) {
+            Server addHere = servers.getFirst();
+            AtomicInteger minTime = servers.getFirst().getWaitingPeriod();
             for (Server server : servers) {
                 if (server.getWaitingPeriod().get() < minTime.get()) {
                     addHere = server;
-                    minTime.set(server.getWaitingPeriod().get());
                 }
             }
             addHere.addClient(client);
+            minTime.set(addHere.getWaitingPeriod().get() + client.getServiceTime());
+            addHere.setWaitingPeriod(minTime);
         }
     }
 

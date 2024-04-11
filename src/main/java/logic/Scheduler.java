@@ -48,9 +48,11 @@ public class Scheduler{
             strategy = new ShortestQueueStrategy();
         else strategy = new ShortestTimeStrategy();
     }
-    public synchronized void dispatchClient(Client client){
+    public void dispatchClient(Client client){
         if(client == null)
             return;
-        strategy.addClient(servers, client);
+        synchronized (client) {
+            strategy.addClient(servers, client);
+        }
     }
 }
