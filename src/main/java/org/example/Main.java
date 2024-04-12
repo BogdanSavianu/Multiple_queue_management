@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        int timeLimit = 100;
+        /*int timeLimit = 100;
         int maxProcessingTime = 10;
         int minProcessingTime = 1;
         int numberOfServers = 3;
@@ -33,6 +33,6 @@ public class Main {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
     }
 }

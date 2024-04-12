@@ -9,11 +9,17 @@ import java.util.List;
 public class ShortestQueueStrategy implements Strategy {
     @Override
     public void addClient(List<Server> servers, Client client) {
-        Server addHere = servers.get(0);
-        for(Server server : servers) {
-            if(server.getClients().size() > addHere.getClients().size())
-                addHere = server;
+        synchronized (client) {
+            Server addHere = servers.getFirst();
+            Integer time;
+            for (Server server : servers) {
+                if (server.getClients().size() < addHere.getClients().size()) {
+                    addHere = server;
+                }
+            }
+            addHere.addClient(client);
+            time = addHere.getWaitingPeriod() + client.getServiceTime();
+            addHere.setWaitingPeriod(time);
         }
-        addHere.getClients().add(client);
     }
 }

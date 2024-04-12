@@ -51,8 +51,15 @@ public class Scheduler{
     public void dispatchClient(Client client){
         if(client == null)
             return;
-        synchronized (client) {
+            changeStrategy(SelectionPolicy.SHORTEST_TIME);
+            int size = servers.getFirst().getClients().size();
+            for(Server server : servers){
+                if(server.getClients().size() != size){
+                    changeStrategy(SelectionPolicy.SHORTEST_QUEUE);
+                    break;
+                }
+            }
             strategy.addClient(servers, client);
-        }
+
     }
 }

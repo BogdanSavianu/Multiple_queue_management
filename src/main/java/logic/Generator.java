@@ -20,10 +20,10 @@ public class Generator {
         this.minProcessingTime = minProcessingTime;
         this.maxProcessingTime = maxProcessingTime;
     }
-    public List<Server> generateServers(Integer n) {
+    public List<Server> generateServers(Integer n, Integer nrClients) {
         List<Server> servers = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            Server server = new Server(n);
+            Server server = new Server(nrClients);
             servers.add(server);
             Thread thread = new Thread(server);
             thread.start();

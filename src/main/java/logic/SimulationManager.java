@@ -7,6 +7,7 @@ import model.Client;
 import model.Server;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class SimulationManager implements Runnable{
@@ -146,26 +147,31 @@ public class SimulationManager implements Runnable{
     }
 
     @Override
-    public synchronized void run() {
-        for (int currentTime = 0; currentTime <= timeLimit; currentTime++) {
-            for (Client client : generatedClients) {
-                if (client.getArrivalTime() == currentTime) {
-                    this.getScheduler().dispatchClient(client);
+    public void run() {
+            for (int currentTime = 0; currentTime <= timeLimit; currentTime++) {
+                Iterator<Client> iterator = generatedClients.iterator();
+                while (iterator.hasNext()) {
+                    Client client = iterator.next();
+                    if (client.getArrivalTime() == currentTime) {
+                        this.getScheduler().dispatchClient(client);
+                        iterator.remove();
+                    }
+                }
+                System.out.println("Time: " + currentTime);
+                System.out.println("Waiting clients: " + generatedClients);
+                for (int i = 0; i < numberOfServers; i++) {
+                    Server server = this.getServers().get(i);
+                    System.out.println("Server " + (i + 1) + " Clients: " + server.getClients() + "server time: " + server.getWaitingPeriod());
+                }
+                System.out.println();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
-            System.out.println("Time: " + currentTime);
-            for (int i = 0; i < numberOfServers; i++) {
-                Server server = this.getServers().get(i);
-                System.out.println("Server " + (i + 1) + " Clients: " + server.getClients() + "server time: " + server.getWaitingPeriod().get());
-            }
-            System.out.println();
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
     }
+
 
     public static void main(String[] args) {
         int timeLimit = 100;
@@ -175,7 +181,7 @@ public class SimulationManager implements Runnable{
         int numberOfClients = 40;
         SimulationManager simulationManager = new SimulationManager(timeLimit, maxProcessingTime, minProcessingTime, numberOfServers, numberOfClients, numberOfClients);
         List<Client> generatedClients = simulationManager.getGenerator().generateNRandomClients(numberOfClients);
-        simulationManager.setServers(simulationManager.getGenerator().generateServers(numberOfServers));
+        simulationManager.setServers(simulationManager.getGenerator().generateServers(numberOfServers,numberOfClients));
         simulationManager.scheduler.setServers(simulationManager.getServers());
         simulationManager.setGeneratedClients(generatedClients);
         Thread t = new Thread(simulationManager);
