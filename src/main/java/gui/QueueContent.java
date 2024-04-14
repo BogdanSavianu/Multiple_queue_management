@@ -80,4 +80,9 @@ public class QueueContent extends JFrame {
         averageWaitingTimeLabel.setText("Average Waiting Time: " + (double)TimeCalculator.avgWaitingTime/ SimulationManager.numberOfClients);
         averageServiceTimeLabel.setText("Average Service Time: " + (double)TimeCalculator.avgServiceTime);
     }
+    public void showPeakHour(){
+        JLabel peakHourLabel = new JLabel();
+        serverPanel.add(peakHourLabel);
+        peakHourLabel.setText("Peak Hour: " + TimeCalculator.peakHour);
+    }
 }

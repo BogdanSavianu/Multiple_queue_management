@@ -91,15 +91,16 @@ public class SimulationManager implements Runnable{
             while (iterator.hasNext()) {
                 Client client = iterator.next();
                 if (client.getArrivalTime() == currentTime) {
-                    this.scheduler.dispatchClient(client);
+                    scheduler.dispatchClient(client);
                     iterator.remove();
                 }
             }
+            TimeCalculator.calculatePeakHour(servers,currentTime);
 
             System.out.println("Time: " + currentTime);
             System.out.println("Waiting clients: " + generatedClients);
             for (int i = 0; i < numberOfServers; i++) {
-                Server server = this.getServers().get(i);
+                Server server = servers.get(i);
                 System.out.println("Server " + (i + 1) + " Clients: " + server.getClients() + "server time: " + server.getWaitingPeriod());
             }
             queueContent.updateQueueContent(servers, generatedClients, currentTime);
@@ -112,6 +113,7 @@ public class SimulationManager implements Runnable{
             }
         }
         queueContent.showAverageTimes();
+        queueContent.showPeakHour();
         stopServers();
         stopSimulation();
         logger.closeFile();

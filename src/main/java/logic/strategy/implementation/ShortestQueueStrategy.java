@@ -1,5 +1,6 @@
 package logic.strategy.implementation;
 
+import logic.TimeCalculator;
 import logic.strategy.Strategy;
 import model.Client;
 import model.Server;
@@ -20,6 +21,7 @@ public class ShortestQueueStrategy implements Strategy {
             time = addHere.getWaitingPeriod() + client.getServiceTime();
             addHere.addClient(client);
             addHere.setWaitingPeriod(time);
+            TimeCalculator.calculateWaitingTime(addHere,client);
         }
     }
 }

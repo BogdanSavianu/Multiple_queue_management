@@ -8,6 +8,8 @@ import java.util.List;
 public class TimeCalculator {
     public static Integer avgWaitingTime = 0;
     public static Double avgServiceTime = 0.0;
+    public static Integer peakHour = -1;
+    public static Integer peakClientCout = -1;
 
     public TimeCalculator() {
         avgWaitingTime = 0;
@@ -29,5 +31,15 @@ public class TimeCalculator {
             avgServiceTime += client.getServiceTime().doubleValue();
         }
         avgServiceTime /= clients.size();
+    }
+    public static void calculatePeakHour(List<Server> servers, int currentTime) {
+        Integer nrClients = 0;
+        for(Server server : servers) {
+            nrClients += server.getClients().size();
+        }
+        if(nrClients > peakClientCout) {
+            peakHour = currentTime;
+            peakClientCout = nrClients;
+        }
     }
 }
