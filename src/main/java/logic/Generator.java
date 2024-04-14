@@ -39,6 +39,7 @@ public class Generator {
             client.setId(i+1);
             client.setArrivalTime(rand.nextInt(maxArrivalTime));
             client.setServiceTime(rand.nextInt(maxProcessingTime-minProcessingTime) + minProcessingTime);
+            client.setServiceTimeUnmodified(client.getServiceTime());
             clients.add(client);
         }
         Collections.sort(clients);

@@ -10,7 +10,7 @@ import model.Server;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Scheduler{
+public class Scheduler {
     private List<Server> servers;
     private Integer maxNoOfServers;
     private Integer nrMaxPerServer;
@@ -27,39 +27,36 @@ public class Scheduler{
         this.servers = servers;
     }
 
-    public Strategy getStrategy() {
-        return strategy;
-    }
-
-    public void setStrategy(Strategy strategy) {
-        this.strategy = strategy;
-    }
-
-    public Integer getMaxNoOfServers() {
-        return maxNoOfServers;
-    }
-
-    public void setMaxNoOfServers(Integer maxNoOfServers) {
-        this.maxNoOfServers = maxNoOfServers;
-    }
-
-    public void changeStrategy(SelectionPolicy policy){
-        if(policy == SelectionPolicy.SHORTEST_QUEUE)
+    public void changeStrategy(SelectionPolicy policy) {
+        if (policy == SelectionPolicy.SHORTEST_QUEUE)
             strategy = new ShortestQueueStrategy();
         else strategy = new ShortestTimeStrategy();
     }
-    public void dispatchClient(Client client){
-        if(client == null)
+
+    public void dispatchClient(Client client) {
+        if (client == null)
             return;
-            changeStrategy(SelectionPolicy.SHORTEST_TIME);
-            int size = servers.getFirst().getClients().size();
-            for(Server server : servers){
-                if(server.getClients().size() != size){
-                    changeStrategy(SelectionPolicy.SHORTEST_QUEUE);
-                    break;
+        List<Server> minList = new ArrayList<>();
+        int minTime = servers.getFirst().getWaitingPeriod();
+        minList.add(servers.getFirst());
+        for (Server server : servers) {
+            if(server.getWaitingPeriod() == minTime) {
+                minList.add(server);
+            }
+            else if(server.getWaitingPeriod() < minTime) {
+                {
+                    minList = new ArrayList<>();
+                    minList.add(server);
                 }
             }
-            strategy.addClient(servers, client);
-
+        }
+        if(minList.size() > 1){
+            changeStrategy(SelectionPolicy.SHORTEST_QUEUE);
+            strategy.addClient(minList,client);
+        }
+        else{
+            changeStrategy(SelectionPolicy.SHORTEST_TIME);
+            strategy.addClient(servers,client);
+        }
     }
 }

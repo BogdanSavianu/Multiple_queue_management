@@ -17,8 +17,8 @@ public class ShortestQueueStrategy implements Strategy {
                     addHere = server;
                 }
             }
-            addHere.addClient(client);
             time = addHere.getWaitingPeriod() + client.getServiceTime();
+            addHere.addClient(client);
             addHere.setWaitingPeriod(time);
         }
     }

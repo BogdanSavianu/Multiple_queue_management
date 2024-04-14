@@ -1,5 +1,7 @@
 package logic.strategy.implementation;
 
+import logic.SimulationManager;
+import logic.TimeCalculator;
 import logic.strategy.Strategy;
 import model.Client;
 import model.Server;
@@ -16,11 +18,13 @@ public class ShortestTimeStrategy implements Strategy {
             for (Server server : servers) {
                 if (server.getWaitingPeriod() < minTime) {
                     addHere = server;
+                    minTime = server.getWaitingPeriod();
                 }
             }
-            addHere.addClient(client);
             minTime = addHere.getWaitingPeriod() + client.getServiceTime();
+            addHere.addClient(client);
             addHere.setWaitingPeriod(minTime);
+            TimeCalculator.calculateWaitingTime(addHere,client);
         }
     }
 

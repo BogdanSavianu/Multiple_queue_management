@@ -1,8 +1,8 @@
 package logic;
 
-import gui.SimulationFrame;
+import gui.QueueContent;
+import gui.StartSimulation;
 import logic.strategy.SelectionPolicy;
-import logic.strategy.Strategy;
 import model.Client;
 import model.Server;
 
@@ -11,19 +11,22 @@ import java.util.Iterator;
 import java.util.List;
 
 public class SimulationManager implements Runnable{
+    private volatile boolean isRunning = true;
     public Integer timeLimit;
     public Integer maxProcessingTime;
     public Integer minProcessingTime;
     public Integer numberOfServers;
     public Integer nrMaxPerServer;
-    public Integer numberOfClients;
+    public static Integer numberOfClients;
     public SelectionPolicy selectionPolicy = SelectionPolicy.SHORTEST_TIME;
     private Scheduler scheduler;
     private Generator generator;
-    private SimulationFrame frame;
+    private Logger logger;
+    private StartSimulation frame;
+    private QueueContent queueContent;
     private List<Client> generatedClients;
     private List<Server> servers;
-    private Integer nrClients;
+    public static Integer avgWaitingTime;
 
     public SimulationManager() {
         generator = new Generator(timeLimit-maxProcessingTime,minProcessingTime,maxProcessingTime);
@@ -39,79 +42,16 @@ public class SimulationManager implements Runnable{
         this.numberOfClients = numberOfClients;
         generator = new Generator(timeLimit-maxProcessingTime,minProcessingTime,maxProcessingTime);
         scheduler = new Scheduler();
+        logger = new Logger();
         generatedClients = new ArrayList<Client>();
-    }
-
-    public Integer getTimeLimit() {
-        return timeLimit;
-    }
-
-    public void setTimeLimit(Integer timeLimit) {
-        this.timeLimit = timeLimit;
-    }
-
-    public Integer getMaxProcessingTime() {
-        return maxProcessingTime;
-    }
-
-    public void setMaxProcessingTime(Integer maxProcessingTime) {
-        this.maxProcessingTime = maxProcessingTime;
-    }
-
-    public Integer getMinProcessingTime() {
-        return minProcessingTime;
-    }
-
-    public void setMinProcessingTime(Integer minProcessingTime) {
-        this.minProcessingTime = minProcessingTime;
-    }
-
-    public Integer getNumberOfServers() {
-        return numberOfServers;
-    }
-
-    public void setNumberOfServers(Integer numberOfServers) {
-        this.numberOfServers = numberOfServers;
-    }
-
-    public Integer getNumberOfClients() {
-        return numberOfClients;
-    }
-
-    public void setNumberOfClients(Integer numberOfClients) {
-        this.numberOfClients = numberOfClients;
-    }
-
-    public SelectionPolicy getSelectionPolicy() {
-        return selectionPolicy;
-    }
-
-    public void setSelectionPolicy(SelectionPolicy selectionPolicy) {
-        this.selectionPolicy = selectionPolicy;
     }
 
     public Scheduler getScheduler() {
         return scheduler;
     }
 
-    public void setScheduler(Scheduler scheduler) {
-        this.scheduler = scheduler;
-    }
-
     public Generator getGenerator() {
         return generator;
-    }
-
-    public void setGenerator(Generator generator) {
-        this.generator = generator;
-    }
-
-    public SimulationFrame getFrame() {
-        return frame;
-    }
-
-    public void setFrame(SimulationFrame frame) {
-        this.frame = frame;
     }
 
     public List<Client> getGeneratedClients() {
@@ -122,22 +62,6 @@ public class SimulationManager implements Runnable{
         this.generatedClients = generatedClients;
     }
 
-    public Integer getNrClients() {
-        return nrClients;
-    }
-
-    public void setNrClients(Integer nrClients) {
-        this.nrClients = nrClients;
-    }
-
-    public Integer getNrMaxPerServer() {
-        return nrMaxPerServer;
-    }
-
-    public void setNrMaxPerServer(Integer nrMaxPerServer) {
-        this.nrMaxPerServer = nrMaxPerServer;
-    }
-
     public List<Server> getServers() {
         return servers;
     }
@@ -146,45 +70,50 @@ public class SimulationManager implements Runnable{
         this.servers = servers;
     }
 
-    @Override
-    public void run() {
-            for (int currentTime = 0; currentTime <= timeLimit; currentTime++) {
-                Iterator<Client> iterator = generatedClients.iterator();
-                while (iterator.hasNext()) {
-                    Client client = iterator.next();
-                    if (client.getArrivalTime() == currentTime) {
-                        this.getScheduler().dispatchClient(client);
-                        iterator.remove();
-                    }
-                }
-                System.out.println("Time: " + currentTime);
-                System.out.println("Waiting clients: " + generatedClients);
-                for (int i = 0; i < numberOfServers; i++) {
-                    Server server = this.getServers().get(i);
-                    System.out.println("Server " + (i + 1) + " Clients: " + server.getClients() + "server time: " + server.getWaitingPeriod());
-                }
-                System.out.println();
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+    private void stopServers() {
+        for (Server server : servers) {
+            server.stopServer();
+        }
+    }
+    public void setQueueContent(QueueContent queueContent) {
+        this.queueContent = queueContent;
+    }
+    public void stopSimulation() {
+        isRunning = false;
     }
 
+    @Override
+    public void run() {
+        logger.createFile("/Users/bogdansavianu/University/Year2/Sem2/Programming_Techniques/Assignment2/log.txt");
+        TimeCalculator.calculateServiceTime(generatedClients);
+        for (int currentTime = 0; currentTime <= timeLimit; currentTime++) {
+            Iterator<Client> iterator = generatedClients.iterator();
+            while (iterator.hasNext()) {
+                Client client = iterator.next();
+                if (client.getArrivalTime() == currentTime) {
+                    this.scheduler.dispatchClient(client);
+                    iterator.remove();
+                }
+            }
 
-    public static void main(String[] args) {
-        int timeLimit = 100;
-        int maxProcessingTime = 10;
-        int minProcessingTime = 1;
-        int numberOfServers = 3;
-        int numberOfClients = 40;
-        SimulationManager simulationManager = new SimulationManager(timeLimit, maxProcessingTime, minProcessingTime, numberOfServers, numberOfClients, numberOfClients);
-        List<Client> generatedClients = simulationManager.getGenerator().generateNRandomClients(numberOfClients);
-        simulationManager.setServers(simulationManager.getGenerator().generateServers(numberOfServers,numberOfClients));
-        simulationManager.scheduler.setServers(simulationManager.getServers());
-        simulationManager.setGeneratedClients(generatedClients);
-        Thread t = new Thread(simulationManager);
-        t.start();
+            System.out.println("Time: " + currentTime);
+            System.out.println("Waiting clients: " + generatedClients);
+            for (int i = 0; i < numberOfServers; i++) {
+                Server server = this.getServers().get(i);
+                System.out.println("Server " + (i + 1) + " Clients: " + server.getClients() + "server time: " + server.getWaitingPeriod());
+            }
+            queueContent.updateQueueContent(servers, generatedClients, currentTime);
+            logger.logSimulation("/Users/bogdansavianu/University/Year2/Sem2/Programming_Techniques/Assignment2/log.txt", currentTime, generatedClients, servers, numberOfServers);
+            System.out.println();
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        queueContent.showAverageTimes();
+        stopServers();
+        stopSimulation();
+        logger.closeFile();
     }
 }

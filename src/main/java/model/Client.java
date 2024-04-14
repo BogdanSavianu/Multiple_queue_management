@@ -4,6 +4,8 @@ public class Client implements Comparable<Client> {
     private Integer id;
     private Integer arrivalTime;
     private Integer serviceTime;
+    private Integer serviceTimeUnmodified;
+
 
     public Client() {
     }
@@ -12,6 +14,7 @@ public class Client implements Comparable<Client> {
         this.id = id;
         this.serviceTime = serviceTime;
         this.arrivalTime = arrivalTime;
+        this.serviceTimeUnmodified  = serviceTime;
     }
 
     public Integer getId() {
@@ -37,6 +40,15 @@ public class Client implements Comparable<Client> {
     public void setServiceTime(Integer serviceTime) {
         this.serviceTime = serviceTime;
     }
+
+    public Integer getServiceTimeUnmodified() {
+        return serviceTimeUnmodified;
+    }
+
+    public void setServiceTimeUnmodified(Integer serviceTimeUnmodified) {
+        this.serviceTimeUnmodified = serviceTimeUnmodified;
+    }
+
     @Override
     public int compareTo(Client otherClient) {
         return Integer.compare(this.arrivalTime, otherClient.arrivalTime);

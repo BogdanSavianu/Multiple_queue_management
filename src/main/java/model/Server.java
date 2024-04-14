@@ -1,12 +1,12 @@
 package model;
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Server implements Runnable {
     private BlockingQueue<Client> clients;
     private Integer waitingPeriod;
+    private volatile boolean isRunning = true;
 
     public Server(Integer nrMaxPerServer) {
         this.clients = new ArrayBlockingQueue<>(nrMaxPerServer);
@@ -33,12 +33,17 @@ public class Server implements Runnable {
         this.waitingPeriod = waitingPeriod;
     }
 
+    public void stopServer() {
+        isRunning = false;
+    }
+
+
     @Override
     public void run() {
-        while (true) {
-            if (!clients.isEmpty())
-                try {
-                    System.out.println(clients.size());
+        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+        executor.scheduleAtFixedRate(() -> {
+            if (!clients.isEmpty()) {
+                synchronized (clients) {
                     Client client = clients.peek();
                     int newServiceTime = client.getServiceTime() - 1;
                     client.setServiceTime(newServiceTime);
@@ -47,10 +52,27 @@ public class Server implements Runnable {
                         System.out.println("Client completed service: " + client);
                         clients.poll();
                     }
-                    Thread.sleep(500);
+                }
+            }
+        }, 0, 500, TimeUnit.MILLISECONDS);
+        synchronized (this) {
+            while (isRunning) {
+                try {
+                    wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+            }
         }
+        executor.shutdown();
+    }
+
+
+    @Override
+    public String toString() {
+        return "Server{" +
+                "clients=" + clients +
+                ", waitingPeriod=" + waitingPeriod +
+                '}';
     }
 }
