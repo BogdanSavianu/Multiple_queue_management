@@ -58,15 +58,6 @@ public class StartSimulation extends JFrame {
         setVisible(true);
     }
 
-    public void createQueueContentFrame() {
-        JFrame frame = new JFrame("Queue Content");
-        JPanel panel = new JPanel();
-        panel.add(new JLabel("Queue Content"));
-        frame.getContentPane().add(panel);
-        frame.setSize(300, 200);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-    }
 
     private void startSimulation() {
         int timeLimit = Integer.parseInt(timeLimitField.getText());

@@ -16,7 +16,6 @@ public class SimulationManager implements Runnable{
     public Integer maxProcessingTime;
     public Integer minProcessingTime;
     public Integer numberOfServers;
-    public Integer nrMaxPerServer;
     public static Integer numberOfClients;
     public SelectionPolicy selectionPolicy = SelectionPolicy.SHORTEST_TIME;
     private Scheduler scheduler;
@@ -26,13 +25,6 @@ public class SimulationManager implements Runnable{
     private QueueContent queueContent;
     private List<Client> generatedClients;
     private List<Server> servers;
-    public static Integer avgWaitingTime;
-
-    public SimulationManager() {
-        generator = new Generator(timeLimit-maxProcessingTime,minProcessingTime,maxProcessingTime);
-        scheduler = new Scheduler();
-        generatedClients = new ArrayList<Client>();
-    }
 
     public SimulationManager(Integer timeLimit, Integer maxProcessingTime, Integer minProcessingTime, Integer numberOfServers, Integer nrMaxPerServer, Integer numberOfClients) {
         this.timeLimit = timeLimit;
@@ -84,7 +76,7 @@ public class SimulationManager implements Runnable{
 
     @Override
     public void run() {
-        logger.createFile("/Users/bogdansavianu/University/Year2/Sem2/Programming_Techniques/Assignment2/log.txt");
+        logger.createFile("/Users/bogdansavianu/University/Year2/Sem2/Programming_Techniques/Assignment2/pt2024_30223_savianu_bogdan_assignment_2/log.txt");
         TimeCalculator.calculateServiceTime(generatedClients);
         for (int currentTime = 0; currentTime <= timeLimit; currentTime++) {
             Iterator<Client> iterator = generatedClients.iterator();
@@ -104,7 +96,7 @@ public class SimulationManager implements Runnable{
                 System.out.println("Server " + (i + 1) + " Clients: " + server.getClients() + "server time: " + server.getWaitingPeriod());
             }
             queueContent.updateQueueContent(servers, generatedClients, currentTime);
-            logger.logSimulation("/Users/bogdansavianu/University/Year2/Sem2/Programming_Techniques/Assignment2/log.txt", currentTime, generatedClients, servers, numberOfServers);
+            logger.logSimulation("/Users/bogdansavianu/University/Year2/Sem2/Programming_Techniques/Assignment2/pt2024_30223_savianu_bogdan_assignment_2/log.txt", currentTime, generatedClients, servers, numberOfServers);
             System.out.println();
             try {
                 Thread.sleep(500);
