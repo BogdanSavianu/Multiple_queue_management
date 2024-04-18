@@ -1,175 +1,126 @@
 Time: 0
-Waiting clients: [Client{id=7, arrivalTime=1, serviceTime=6}, Client{id=8, arrivalTime=3, serviceTime=7}, Client{id=3, arrivalTime=5, serviceTime=7}, Client{id=4, arrivalTime=5, serviceTime=2}, Client{id=6, arrivalTime=5, serviceTime=4}, Client{id=12, arrivalTime=5, serviceTime=5}, Client{id=1, arrivalTime=7, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=2}, Client{id=11, arrivalTime=11, serviceTime=4}, Client{id=5, arrivalTime=12, serviceTime=5}, Client{id=10, arrivalTime=14, serviceTime=5}]
-Server 1 Clients: [Client{id=9, arrivalTime=0, serviceTime=5}] Server time: 5
-Server 2 Clients: [Client{id=13, arrivalTime=0, serviceTime=7}] Server time: 7
+Waiting clients: [Client{id=4, arrivalTime=1, serviceTime=4}, Client{id=7, arrivalTime=3, serviceTime=4}, Client{id=1, arrivalTime=4, serviceTime=2}, Client{id=3, arrivalTime=7, serviceTime=3}, Client{id=9, arrivalTime=8, serviceTime=3}, Client{id=6, arrivalTime=9, serviceTime=5}, Client{id=10, arrivalTime=9, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=1}, Client{id=5, arrivalTime=11, serviceTime=2}, Client{id=8, arrivalTime=12, serviceTime=6}]
+Server 1 Clients: [] Server time: 0
+Server 2 Clients: [] Server time: 0
 Server 3 Clients: [] Server time: 0
 Server 4 Clients: [] Server time: 0
 
 Time: 1
-Waiting clients: [Client{id=8, arrivalTime=3, serviceTime=7}, Client{id=3, arrivalTime=5, serviceTime=7}, Client{id=4, arrivalTime=5, serviceTime=2}, Client{id=6, arrivalTime=5, serviceTime=4}, Client{id=12, arrivalTime=5, serviceTime=5}, Client{id=1, arrivalTime=7, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=2}, Client{id=11, arrivalTime=11, serviceTime=4}, Client{id=5, arrivalTime=12, serviceTime=5}, Client{id=10, arrivalTime=14, serviceTime=5}]
-Server 1 Clients: [Client{id=9, arrivalTime=0, serviceTime=4}] Server time: 4
-Server 2 Clients: [Client{id=13, arrivalTime=0, serviceTime=6}] Server time: 6
-Server 3 Clients: [Client{id=7, arrivalTime=1, serviceTime=6}] Server time: 6
+Waiting clients: [Client{id=7, arrivalTime=3, serviceTime=4}, Client{id=1, arrivalTime=4, serviceTime=2}, Client{id=3, arrivalTime=7, serviceTime=3}, Client{id=9, arrivalTime=8, serviceTime=3}, Client{id=6, arrivalTime=9, serviceTime=5}, Client{id=10, arrivalTime=9, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=1}, Client{id=5, arrivalTime=11, serviceTime=2}, Client{id=8, arrivalTime=12, serviceTime=6}]
+Server 1 Clients: [Client{id=4, arrivalTime=1, serviceTime=4}] Server time: 4
+Server 2 Clients: [] Server time: 0
+Server 3 Clients: [] Server time: 0
 Server 4 Clients: [] Server time: 0
 
 Time: 2
-Waiting clients: [Client{id=8, arrivalTime=3, serviceTime=7}, Client{id=3, arrivalTime=5, serviceTime=7}, Client{id=4, arrivalTime=5, serviceTime=2}, Client{id=6, arrivalTime=5, serviceTime=4}, Client{id=12, arrivalTime=5, serviceTime=5}, Client{id=1, arrivalTime=7, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=2}, Client{id=11, arrivalTime=11, serviceTime=4}, Client{id=5, arrivalTime=12, serviceTime=5}, Client{id=10, arrivalTime=14, serviceTime=5}]
-Server 1 Clients: [Client{id=9, arrivalTime=0, serviceTime=3}] Server time: 3
-Server 2 Clients: [Client{id=13, arrivalTime=0, serviceTime=5}] Server time: 5
-Server 3 Clients: [Client{id=7, arrivalTime=1, serviceTime=5}] Server time: 5
+Waiting clients: [Client{id=7, arrivalTime=3, serviceTime=4}, Client{id=1, arrivalTime=4, serviceTime=2}, Client{id=3, arrivalTime=7, serviceTime=3}, Client{id=9, arrivalTime=8, serviceTime=3}, Client{id=6, arrivalTime=9, serviceTime=5}, Client{id=10, arrivalTime=9, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=1}, Client{id=5, arrivalTime=11, serviceTime=2}, Client{id=8, arrivalTime=12, serviceTime=6}]
+Server 1 Clients: [Client{id=4, arrivalTime=1, serviceTime=3}] Server time: 3
+Server 2 Clients: [] Server time: 0
+Server 3 Clients: [] Server time: 0
 Server 4 Clients: [] Server time: 0
 
 Time: 3
-Waiting clients: [Client{id=3, arrivalTime=5, serviceTime=7}, Client{id=4, arrivalTime=5, serviceTime=2}, Client{id=6, arrivalTime=5, serviceTime=4}, Client{id=12, arrivalTime=5, serviceTime=5}, Client{id=1, arrivalTime=7, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=2}, Client{id=11, arrivalTime=11, serviceTime=4}, Client{id=5, arrivalTime=12, serviceTime=5}, Client{id=10, arrivalTime=14, serviceTime=5}]
-Server 1 Clients: [Client{id=9, arrivalTime=0, serviceTime=2}] Server time: 2
-Server 2 Clients: [Client{id=13, arrivalTime=0, serviceTime=4}] Server time: 4
-Server 3 Clients: [Client{id=7, arrivalTime=1, serviceTime=4}] Server time: 4
-Server 4 Clients: [Client{id=8, arrivalTime=3, serviceTime=7}] Server time: 7
+Waiting clients: [Client{id=1, arrivalTime=4, serviceTime=2}, Client{id=3, arrivalTime=7, serviceTime=3}, Client{id=9, arrivalTime=8, serviceTime=3}, Client{id=6, arrivalTime=9, serviceTime=5}, Client{id=10, arrivalTime=9, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=1}, Client{id=5, arrivalTime=11, serviceTime=2}, Client{id=8, arrivalTime=12, serviceTime=6}]
+Server 1 Clients: [Client{id=4, arrivalTime=1, serviceTime=2}] Server time: 2
+Server 2 Clients: [Client{id=7, arrivalTime=3, serviceTime=4}] Server time: 4
+Server 3 Clients: [] Server time: 0
+Server 4 Clients: [] Server time: 0
 
 Time: 4
-Waiting clients: [Client{id=3, arrivalTime=5, serviceTime=7}, Client{id=4, arrivalTime=5, serviceTime=2}, Client{id=6, arrivalTime=5, serviceTime=4}, Client{id=12, arrivalTime=5, serviceTime=5}, Client{id=1, arrivalTime=7, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=2}, Client{id=11, arrivalTime=11, serviceTime=4}, Client{id=5, arrivalTime=12, serviceTime=5}, Client{id=10, arrivalTime=14, serviceTime=5}]
-Server 1 Clients: [Client{id=9, arrivalTime=0, serviceTime=1}] Server time: 1
-Server 2 Clients: [Client{id=13, arrivalTime=0, serviceTime=3}] Server time: 3
-Server 3 Clients: [Client{id=7, arrivalTime=1, serviceTime=3}] Server time: 3
-Server 4 Clients: [Client{id=8, arrivalTime=3, serviceTime=6}] Server time: 6
+Waiting clients: [Client{id=3, arrivalTime=7, serviceTime=3}, Client{id=9, arrivalTime=8, serviceTime=3}, Client{id=6, arrivalTime=9, serviceTime=5}, Client{id=10, arrivalTime=9, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=1}, Client{id=5, arrivalTime=11, serviceTime=2}, Client{id=8, arrivalTime=12, serviceTime=6}]
+Server 1 Clients: [Client{id=4, arrivalTime=1, serviceTime=1}] Server time: 1
+Server 2 Clients: [Client{id=7, arrivalTime=3, serviceTime=3}] Server time: 3
+Server 3 Clients: [Client{id=1, arrivalTime=4, serviceTime=2}] Server time: 2
+Server 4 Clients: [] Server time: 0
 
 Time: 5
-Waiting clients: [Client{id=1, arrivalTime=7, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=2}, Client{id=11, arrivalTime=11, serviceTime=4}, Client{id=5, arrivalTime=12, serviceTime=5}, Client{id=10, arrivalTime=14, serviceTime=5}]
-Server 1 Clients: [Client{id=3, arrivalTime=5, serviceTime=7}] Server time: 7
-Server 2 Clients: [Client{id=13, arrivalTime=0, serviceTime=2}, Client{id=4, arrivalTime=5, serviceTime=2}, Client{id=12, arrivalTime=5, serviceTime=5}] Server time: 9
-Server 3 Clients: [Client{id=7, arrivalTime=1, serviceTime=2}, Client{id=6, arrivalTime=5, serviceTime=4}] Server time: 6
-Server 4 Clients: [Client{id=8, arrivalTime=3, serviceTime=5}] Server time: 5
+Waiting clients: [Client{id=3, arrivalTime=7, serviceTime=3}, Client{id=9, arrivalTime=8, serviceTime=3}, Client{id=6, arrivalTime=9, serviceTime=5}, Client{id=10, arrivalTime=9, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=1}, Client{id=5, arrivalTime=11, serviceTime=2}, Client{id=8, arrivalTime=12, serviceTime=6}]
+Server 1 Clients: [] Server time: 0
+Server 2 Clients: [Client{id=7, arrivalTime=3, serviceTime=2}] Server time: 2
+Server 3 Clients: [Client{id=1, arrivalTime=4, serviceTime=1}] Server time: 1
+Server 4 Clients: [] Server time: 0
 
 Time: 6
-Waiting clients: [Client{id=1, arrivalTime=7, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=2}, Client{id=11, arrivalTime=11, serviceTime=4}, Client{id=5, arrivalTime=12, serviceTime=5}, Client{id=10, arrivalTime=14, serviceTime=5}]
-Server 1 Clients: [Client{id=3, arrivalTime=5, serviceTime=6}] Server time: 6
-Server 2 Clients: [Client{id=13, arrivalTime=0, serviceTime=1}, Client{id=4, arrivalTime=5, serviceTime=2}, Client{id=12, arrivalTime=5, serviceTime=5}] Server time: 8
-Server 3 Clients: [Client{id=7, arrivalTime=1, serviceTime=1}, Client{id=6, arrivalTime=5, serviceTime=4}] Server time: 5
-Server 4 Clients: [Client{id=8, arrivalTime=3, serviceTime=4}] Server time: 4
+Waiting clients: [Client{id=3, arrivalTime=7, serviceTime=3}, Client{id=9, arrivalTime=8, serviceTime=3}, Client{id=6, arrivalTime=9, serviceTime=5}, Client{id=10, arrivalTime=9, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=1}, Client{id=5, arrivalTime=11, serviceTime=2}, Client{id=8, arrivalTime=12, serviceTime=6}]
+Server 1 Clients: [] Server time: 0
+Server 2 Clients: [Client{id=7, arrivalTime=3, serviceTime=1}] Server time: 1
+Server 3 Clients: [] Server time: 0
+Server 4 Clients: [] Server time: 0
 
 Time: 7
-Waiting clients: [Client{id=2, arrivalTime=10, serviceTime=2}, Client{id=11, arrivalTime=11, serviceTime=4}, Client{id=5, arrivalTime=12, serviceTime=5}, Client{id=10, arrivalTime=14, serviceTime=5}]
-Server 1 Clients: [Client{id=3, arrivalTime=5, serviceTime=5}] Server time: 5
-Server 2 Clients: [Client{id=4, arrivalTime=5, serviceTime=2}, Client{id=12, arrivalTime=5, serviceTime=5}] Server time: 7
-Server 3 Clients: [Client{id=6, arrivalTime=5, serviceTime=4}] Server time: 4
-Server 4 Clients: [Client{id=8, arrivalTime=3, serviceTime=3}, Client{id=1, arrivalTime=7, serviceTime=3}] Server time: 6
+Waiting clients: [Client{id=9, arrivalTime=8, serviceTime=3}, Client{id=6, arrivalTime=9, serviceTime=5}, Client{id=10, arrivalTime=9, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=1}, Client{id=5, arrivalTime=11, serviceTime=2}, Client{id=8, arrivalTime=12, serviceTime=6}]
+Server 1 Clients: [Client{id=3, arrivalTime=7, serviceTime=3}] Server time: 3
+Server 2 Clients: [] Server time: 0
+Server 3 Clients: [] Server time: 0
+Server 4 Clients: [] Server time: 0
 
 Time: 8
-Waiting clients: [Client{id=2, arrivalTime=10, serviceTime=2}, Client{id=11, arrivalTime=11, serviceTime=4}, Client{id=5, arrivalTime=12, serviceTime=5}, Client{id=10, arrivalTime=14, serviceTime=5}]
-Server 1 Clients: [Client{id=3, arrivalTime=5, serviceTime=4}] Server time: 4
-Server 2 Clients: [Client{id=4, arrivalTime=5, serviceTime=1}, Client{id=12, arrivalTime=5, serviceTime=5}] Server time: 6
-Server 3 Clients: [Client{id=6, arrivalTime=5, serviceTime=3}] Server time: 3
-Server 4 Clients: [Client{id=8, arrivalTime=3, serviceTime=2}, Client{id=1, arrivalTime=7, serviceTime=3}] Server time: 5
+Waiting clients: [Client{id=6, arrivalTime=9, serviceTime=5}, Client{id=10, arrivalTime=9, serviceTime=3}, Client{id=2, arrivalTime=10, serviceTime=1}, Client{id=5, arrivalTime=11, serviceTime=2}, Client{id=8, arrivalTime=12, serviceTime=6}]
+Server 1 Clients: [Client{id=3, arrivalTime=7, serviceTime=2}] Server time: 2
+Server 2 Clients: [Client{id=9, arrivalTime=8, serviceTime=3}] Server time: 3
+Server 3 Clients: [] Server time: 0
+Server 4 Clients: [] Server time: 0
 
 Time: 9
-Waiting clients: [Client{id=2, arrivalTime=10, serviceTime=2}, Client{id=11, arrivalTime=11, serviceTime=4}, Client{id=5, arrivalTime=12, serviceTime=5}, Client{id=10, arrivalTime=14, serviceTime=5}]
-Server 1 Clients: [Client{id=3, arrivalTime=5, serviceTime=3}] Server time: 3
-Server 2 Clients: [Client{id=12, arrivalTime=5, serviceTime=5}] Server time: 5
-Server 3 Clients: [Client{id=6, arrivalTime=5, serviceTime=2}] Server time: 2
-Server 4 Clients: [Client{id=8, arrivalTime=3, serviceTime=1}, Client{id=1, arrivalTime=7, serviceTime=3}] Server time: 4
+Waiting clients: [Client{id=2, arrivalTime=10, serviceTime=1}, Client{id=5, arrivalTime=11, serviceTime=2}, Client{id=8, arrivalTime=12, serviceTime=6}]
+Server 1 Clients: [Client{id=3, arrivalTime=7, serviceTime=1}] Server time: 1
+Server 2 Clients: [Client{id=9, arrivalTime=8, serviceTime=2}] Server time: 2
+Server 3 Clients: [Client{id=6, arrivalTime=9, serviceTime=5}] Server time: 5
+Server 4 Clients: [Client{id=10, arrivalTime=9, serviceTime=3}] Server time: 3
 
 Time: 10
-Waiting clients: [Client{id=11, arrivalTime=11, serviceTime=4}, Client{id=5, arrivalTime=12, serviceTime=5}, Client{id=10, arrivalTime=14, serviceTime=5}]
-Server 1 Clients: [Client{id=3, arrivalTime=5, serviceTime=2}] Server time: 2
-Server 2 Clients: [Client{id=12, arrivalTime=5, serviceTime=4}] Server time: 4
-Server 3 Clients: [Client{id=6, arrivalTime=5, serviceTime=1}, Client{id=2, arrivalTime=10, serviceTime=2}] Server time: 3
-Server 4 Clients: [Client{id=1, arrivalTime=7, serviceTime=3}] Server time: 3
+Waiting clients: [Client{id=5, arrivalTime=11, serviceTime=2}, Client{id=8, arrivalTime=12, serviceTime=6}]
+Server 1 Clients: [Client{id=2, arrivalTime=10, serviceTime=1}] Server time: 1
+Server 2 Clients: [Client{id=9, arrivalTime=8, serviceTime=1}] Server time: 1
+Server 3 Clients: [Client{id=6, arrivalTime=9, serviceTime=4}] Server time: 4
+Server 4 Clients: [Client{id=10, arrivalTime=9, serviceTime=2}] Server time: 2
 
 Time: 11
-Waiting clients: [Client{id=5, arrivalTime=12, serviceTime=5}, Client{id=10, arrivalTime=14, serviceTime=5}]
-Server 1 Clients: [Client{id=3, arrivalTime=5, serviceTime=1}, Client{id=11, arrivalTime=11, serviceTime=4}] Server time: 5
-Server 2 Clients: [Client{id=12, arrivalTime=5, serviceTime=3}] Server time: 3
-Server 3 Clients: [Client{id=2, arrivalTime=10, serviceTime=2}] Server time: 2
-Server 4 Clients: [Client{id=1, arrivalTime=7, serviceTime=2}] Server time: 2
+Waiting clients: [Client{id=8, arrivalTime=12, serviceTime=6}]
+Server 1 Clients: [Client{id=5, arrivalTime=11, serviceTime=2}] Server time: 2
+Server 2 Clients: [] Server time: 0
+Server 3 Clients: [Client{id=6, arrivalTime=9, serviceTime=3}] Server time: 3
+Server 4 Clients: [Client{id=10, arrivalTime=9, serviceTime=1}] Server time: 1
 
 Time: 12
-Waiting clients: [Client{id=10, arrivalTime=14, serviceTime=5}]
-Server 1 Clients: [Client{id=11, arrivalTime=11, serviceTime=4}] Server time: 4
-Server 2 Clients: [Client{id=12, arrivalTime=5, serviceTime=2}] Server time: 2
-Server 3 Clients: [Client{id=2, arrivalTime=10, serviceTime=1}, Client{id=5, arrivalTime=12, serviceTime=5}] Server time: 6
-Server 4 Clients: [Client{id=1, arrivalTime=7, serviceTime=1}] Server time: 1
+Waiting clients: []
+Server 1 Clients: [Client{id=5, arrivalTime=11, serviceTime=1}] Server time: 1
+Server 2 Clients: [Client{id=8, arrivalTime=12, serviceTime=6}] Server time: 6
+Server 3 Clients: [Client{id=6, arrivalTime=9, serviceTime=2}] Server time: 2
+Server 4 Clients: [] Server time: 0
 
 Time: 13
-Waiting clients: [Client{id=10, arrivalTime=14, serviceTime=5}]
-Server 1 Clients: [Client{id=11, arrivalTime=11, serviceTime=3}] Server time: 3
-Server 2 Clients: [Client{id=12, arrivalTime=5, serviceTime=1}] Server time: 1
-Server 3 Clients: [Client{id=5, arrivalTime=12, serviceTime=5}] Server time: 5
+Waiting clients: []
+Server 1 Clients: [] Server time: 0
+Server 2 Clients: [Client{id=8, arrivalTime=12, serviceTime=5}] Server time: 5
+Server 3 Clients: [Client{id=6, arrivalTime=9, serviceTime=1}] Server time: 1
 Server 4 Clients: [] Server time: 0
 
 Time: 14
 Waiting clients: []
-Server 1 Clients: [Client{id=11, arrivalTime=11, serviceTime=2}] Server time: 2
-Server 2 Clients: [Client{id=10, arrivalTime=14, serviceTime=5}] Server time: 5
-Server 3 Clients: [Client{id=5, arrivalTime=12, serviceTime=4}] Server time: 4
+Server 1 Clients: [] Server time: 0
+Server 2 Clients: [Client{id=8, arrivalTime=12, serviceTime=4}] Server time: 4
+Server 3 Clients: [] Server time: 0
 Server 4 Clients: [] Server time: 0
 
 Time: 15
 Waiting clients: []
-Server 1 Clients: [Client{id=11, arrivalTime=11, serviceTime=1}] Server time: 1
-Server 2 Clients: [Client{id=10, arrivalTime=14, serviceTime=4}] Server time: 4
-Server 3 Clients: [Client{id=5, arrivalTime=12, serviceTime=3}] Server time: 3
+Server 1 Clients: [] Server time: 0
+Server 2 Clients: [Client{id=8, arrivalTime=12, serviceTime=3}] Server time: 3
+Server 3 Clients: [] Server time: 0
 Server 4 Clients: [] Server time: 0
 
 Time: 16
 Waiting clients: []
 Server 1 Clients: [] Server time: 0
-Server 2 Clients: [Client{id=10, arrivalTime=14, serviceTime=3}] Server time: 3
-Server 3 Clients: [Client{id=5, arrivalTime=12, serviceTime=2}] Server time: 2
+Server 2 Clients: [Client{id=8, arrivalTime=12, serviceTime=2}] Server time: 2
+Server 3 Clients: [] Server time: 0
 Server 4 Clients: [] Server time: 0
 
 Time: 17
 Waiting clients: []
 Server 1 Clients: [] Server time: 0
-Server 2 Clients: [Client{id=10, arrivalTime=14, serviceTime=2}] Server time: 2
-Server 3 Clients: [Client{id=5, arrivalTime=12, serviceTime=1}] Server time: 1
-Server 4 Clients: [] Server time: 0
-
-Time: 18
-Waiting clients: []
-Server 1 Clients: [] Server time: 0
-Server 2 Clients: [Client{id=10, arrivalTime=14, serviceTime=1}] Server time: 1
-Server 3 Clients: [] Server time: 0
-Server 4 Clients: [] Server time: 0
-
-Time: 19
-Waiting clients: []
-Server 1 Clients: [] Server time: 0
-Server 2 Clients: [] Server time: 0
-Server 3 Clients: [] Server time: 0
-Server 4 Clients: [] Server time: 0
-
-Time: 20
-Waiting clients: []
-Server 1 Clients: [] Server time: 0
-Server 2 Clients: [] Server time: 0
-Server 3 Clients: [] Server time: 0
-Server 4 Clients: [] Server time: 0
-
-Time: 21
-Waiting clients: []
-Server 1 Clients: [] Server time: 0
-Server 2 Clients: [] Server time: 0
-Server 3 Clients: [] Server time: 0
-Server 4 Clients: [] Server time: 0
-
-Time: 22
-Waiting clients: []
-Server 1 Clients: [] Server time: 0
-Server 2 Clients: [] Server time: 0
-Server 3 Clients: [] Server time: 0
-Server 4 Clients: [] Server time: 0
-
-Time: 23
-Waiting clients: []
-Server 1 Clients: [] Server time: 0
-Server 2 Clients: [] Server time: 0
-Server 3 Clients: [] Server time: 0
-Server 4 Clients: [] Server time: 0
-
-Time: 24
-Waiting clients: []
-Server 1 Clients: [] Server time: 0
-Server 2 Clients: [] Server time: 0
+Server 2 Clients: [Client{id=8, arrivalTime=12, serviceTime=1}] Server time: 1
 Server 3 Clients: [] Server time: 0
 Server 4 Clients: [] Server time: 0
 

@@ -70,7 +70,7 @@ public class StartSimulation extends JFrame {
         simulationManager.setServers(simulationManager.getGenerator().generateServers(numberOfServers, numberOfClients));
         simulationManager.getScheduler().setServers(simulationManager.getServers());
         simulationManager.setGeneratedClients(generatedClients);
-        QueueContent queueContentFrame = new QueueContent(simulationManager.getServers(),simulationManager.getGeneratedClients());
+        QueueContent queueContentFrame = new QueueContent(simulationManager.getServers(), simulationManager.getGeneratedClients());
         simulationManager.setQueueContent(queueContentFrame);
         Thread t = new Thread(simulationManager);
         t.start();

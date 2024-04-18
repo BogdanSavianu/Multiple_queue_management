@@ -43,6 +43,7 @@ public class Server implements Runnable {
         ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
         executor.scheduleAtFixedRate(() -> {
             if (!clients.isEmpty()) {
+                System.out.println();
                 synchronized (clients) {
                     Client client = clients.peek();
                     int newServiceTime = client.getServiceTime() - 1;

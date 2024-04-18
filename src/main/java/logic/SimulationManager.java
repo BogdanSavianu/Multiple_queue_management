@@ -79,6 +79,14 @@ public class SimulationManager implements Runnable{
         logger.createFile("/Users/bogdansavianu/University/Year2/Sem2/Programming_Techniques/Assignment2/pt2024_30223_savianu_bogdan_assignment_2/log.txt");
         TimeCalculator.calculateServiceTime(generatedClients);
         for (int currentTime = 0; currentTime <= timeLimit; currentTime++) {
+            Boolean foundClients = false;
+            for(Server server : servers)
+                if(!server.getClients().isEmpty())
+                    foundClients = true;
+            if(!foundClients && generatedClients.isEmpty()) {
+                queueContent.updateQueueContent(servers, generatedClients, currentTime);
+                break;
+            }
             Iterator<Client> iterator = generatedClients.iterator();
             while (iterator.hasNext()) {
                 Client client = iterator.next();
@@ -104,8 +112,7 @@ public class SimulationManager implements Runnable{
                 e.printStackTrace();
             }
         }
-        queueContent.showAverageTimes();
-        queueContent.showPeakHour();
+        queueContent.showAverageTimesAndPeakHour();
         stopServers();
         stopSimulation();
         logger.closeFile();
